@@ -1,0 +1,7 @@
+{
+    "env":{
+        "MONGO_USER" : "lenyxdev_db_user",
+        "MONGO_PWD" : "W92Qz3xhdmK53KEm",
+        "MONGO_DB" : "test"
+    }
+}
