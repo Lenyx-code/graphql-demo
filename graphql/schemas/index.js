@@ -1,28 +1,23 @@
 const { buildSchema } = require('graphql');
+const etudiantSchema = require('./etudiant'); 
+const specialiteSchema = require('./specialite');
 
 module.exports = buildSchema(`
-    type Etudiant {
-        _id: ID! 
-        nom: String!
-        prenom: String!
-        createdAt: String!
-    }
-
-    input EtudiantInput {
-        nom: String!
-        prenom: String!
-    }
-    
-    type Query{
-        etudiant:[Etudiant!]
+    # On définit les types de base vides ou avec une requête de santé
+    type Query {
+        _empty: String
     }
 
     type Mutation {
-        createEtudiant(etudiant:EtudiantInput) : Etudiant
+        _empty: String
     }
 
-    schema{
-        query:Query
-        mutation:Mutation
+    # On inclut les extensions
+    ${etudiantSchema}
+    ${specialiteSchema}
+
+    schema {
+        query: Query
+        mutation: Mutation
     }
-`)
+`);
